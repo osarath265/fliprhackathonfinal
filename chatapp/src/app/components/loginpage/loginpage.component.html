@@ -6,9 +6,9 @@
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
             <mat-form-field class="example-full-width">
                 <mat-label>Username</mat-label>
-                <input matInput formControlName="userName" type="text">
-                    <div *ngIf="loginForm.get('userName').invalid && loginForm.get('userName').touched">
-                    <small *ngIf="loginForm.get('userName').errors?.required"
+                <input matInput formControlName="email" type="text">
+                    <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                    <small *ngIf="loginForm.get('email').errors?.required"
                         class="text-danger">username is
                         required</small>
                 </div>
@@ -22,8 +22,14 @@
                     <small *ngIf="loginForm.get('password').errors?.required" class="text-danger">password is
                         required</small>
                 </div>
+                <div *ngIf="passwordwrong">
+                    <small *ngIf="passwordwrong" class="text-danger">
+                        invalid username or password please try again
+                    </small>
+                </div>
             </mat-form-field>
             <button [disabled]="!loginForm.valid" mat-raised-button type="submit" color="primary">Verify</button>
+            <a style="font-size:14px;margin-left:20px;color:cornflowerblue">Forgot password?</a>
         </form>
         </mat-tab>
         <!-- Sign up -->
