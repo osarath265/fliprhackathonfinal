@@ -1,0 +1,83 @@
+<mat-card class="container-fluid box shadow">
+    <img class="rounded-circle profileImg mx-auto d-block shadow text-center" src="./assets/img/profile.svg">
+    <mat-tab-group>
+        <!-- Login -->
+        <mat-tab label="Login">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="userName" type="text">
+                    <div *ngIf="loginForm.get('userName').invalid && loginForm.get('userName').touched">
+                    <small *ngIf="loginForm.get('userName').errors?.required"
+                        class="text-danger">username is
+                        required</small>
+                </div>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput
+                    [class.is-invalid]="loginForm.get('password').invalid && loginForm.get('password').touched"
+                    formControlName="password" type="password">
+                <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                    <small *ngIf="loginForm.get('password').errors?.required" class="text-danger">password is
+                        required</small>
+                </div>
+            </mat-form-field>
+            <button [disabled]="!loginForm.valid" mat-raised-button type="submit" color="primary">Verify</button>
+        </form>
+        </mat-tab>
+        <!-- Sign up -->
+        <mat-tab label="Sign Up">
+            <!-- <mat-card class="container-fluid box shadow"> -->
+                <form [formGroup]="signUpForm" (ngSubmit)="Submit()" class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput [class.is-invalid]="signUpForm.get('email').invalid && signUpForm.get('email').touched"
+                        formControlName="email" type="text">
+                        <div *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched">
+                            <small *ngIf="signUpForm.get('email').errors?.required" class="text-danger">Email is
+                                required</small>
+                                <small *ngIf="signUpForm.get('email').errors?.email" class="text-danger">please enter valid
+                                    email</small>
+                                </div>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Username</mat-label>
+                        <input matInput  [class.is-invalid]="signUpForm.get('username').invalid && signUpForm.get('username').touched" formControlName="username" type="text">
+                        <mat-hint *ngIf="signUpForm.get('username').pristine">Username must contain a minimum of 8 letters</mat-hint>
+                        <div *ngIf="signUpForm.get('username').invalid && signUpForm.get('username').touched">
+                            <small *ngIf="signUpForm.get('username').errors?.required" class="text-danger">username is
+                                required</small>
+                            </div>
+            
+                        </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput
+                            [class.is-invalid]="signUpForm.get('password').invalid && signUpForm.get('password').touched"
+                            formControlName="password" type="password">
+                        <mat-hint *ngIf="signUpForm.get('password').pristine">please choose a password of mix of characters
+                        </mat-hint>
+                        <div *ngIf="signUpForm.get('password').invalid && signUpForm.get('password').touched">
+                            <small *ngIf="signUpForm.get('password').errors?.required" class="text-danger">password is
+                                required</small>
+                            <small *ngIf="signUpForm.get('password').errors?.minLength" class="text-danger">Password must contain a minimum of 8 letters</small>    
+                            </div>
+                    </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Confirm Password</mat-label>
+                                <input matInput [class.is-invalid]="signUpForm.get('confirmPassword').invalid && signUpForm.get('confirmPassword').touched" formControlName="confirmPassword" type="password">   
+                                  <div *ngIf="signUpForm.get('confirmPassword').invalid && signUpForm.get('confirmPassword').touched">
+                                    <small *ngIf="signUpForm.get('confirmPassword').errors?.required" class="text-danger">confirm password is required</small>
+                                </div>
+                            </mat-form-field>
+                            
+                    <button [disabled]="!signUpForm.valid" mat-raised-button type="submit" color="primary">Save</button>
+                </form>
+            <!-- </mat-card> -->
+        </mat-tab>
+
+</mat-tab-group>
+</mat-card>
+
+
