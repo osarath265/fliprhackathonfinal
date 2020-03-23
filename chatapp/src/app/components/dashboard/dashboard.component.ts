@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
    {
       console.log(this.createBoard.value);
       console.log("at dashborad ts",this.pl.email); 
+      
    }
    
   ngOnInit() {
