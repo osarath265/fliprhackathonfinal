@@ -7,6 +7,7 @@ export class PostlogindataService {
 
   usersignUpData:any;
   logindata:any;
+  public email:any;
   url = 'http://localhost:3000/auth/signup';
   loginurl = 'http://localhost:3000/auth/login';
   constructor(private http:HttpClient) { }

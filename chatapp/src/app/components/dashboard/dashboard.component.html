@@ -1,1 +1,17 @@
-<p>dashboard works!</p>
+<mat-card class="card shadow custom">
+<form [formGroup]="createBoard" class="example-form" (ngSubmit)="createboard()">
+<mat-form-field class="example-full-width">   
+<mat-label>Create Board</mat-label>
+<input matInput formControlName="boardname" type="text">
+</mat-form-field>
+</form>
+<button [disabled]="!createBoard.valid" mat-raised-button type="submit" color="accent">Create</button>
+</mat-card>
+
+<!-- <div  *ngFor="let card of cards">
+<mat-card class="card shadow">
+
+
+</mat-card>
+    
+</div> -->

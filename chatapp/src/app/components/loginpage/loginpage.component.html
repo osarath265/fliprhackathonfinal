@@ -29,11 +29,11 @@
                 </div>
             </mat-form-field>
             <button [disabled]="!loginForm.valid" mat-raised-button type="submit" color="primary">Verify</button>
-            <a style="font-size:14px;margin-left:20px;color:cornflowerblue">Forgot password?</a>
+            <a style="font-size:14px;margin-left:20px;color:cornflowerblue" [routerLink]="['/forgotpassword']">Forgot password?</a>
         </form>
         </mat-tab>
         <!-- Sign up -->
-        <mat-tab label="Sign Up">
+        <mat-tab label="Sign up">
             <!-- <mat-card class="container-fluid box shadow"> -->
                 <form [formGroup]="signUpForm" (ngSubmit)="Submit()" class="example-form">
                     <mat-form-field class="example-full-width">
@@ -80,7 +80,9 @@
                             
                     <button [disabled]="!signUpForm.valid" mat-raised-button type="submit" color="primary">Save</button>
                 </form>
-            <!-- </mat-card> -->
+            <div *ngIf="userflag">
+                <small class="text-success">Succesfully registered</small>
+            </div>
         </mat-tab>
 
 </mat-tab-group>

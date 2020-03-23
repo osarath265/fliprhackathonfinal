@@ -13,6 +13,7 @@ export class LoginpageComponent implements OnInit {
 
 
   passwordwrong:boolean=false;
+  userflag:boolean=false;
   constructor(private fb:FormBuilder,private postsignup:PostlogindataService,private router:Router ) { }
 
   ngOnInit() {
@@ -38,6 +39,8 @@ onSubmit()
   this.postsignup.verifydata(this.loginForm.value).subscribe(data=>
     {
       console.log(data);
+      this.postsignup.email=data;
+      console.log(this.postsignup.email);
     this.router.navigate(['/dashboard']);
     },
     err=>
@@ -54,6 +57,8 @@ Submit()
   this.postsignup.postdata(this.signUpForm.value).subscribe(data=>
     {
       console.log(data);
+      this.userflag=true;
+      this.signUpForm.reset();
     },
     err=>
     {
