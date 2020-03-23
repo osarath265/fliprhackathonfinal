@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BoardmanagerService {
 
+ url="";
 
-  url=""
   constructor(private http:HttpClient) { }
 
   postboardname(name)

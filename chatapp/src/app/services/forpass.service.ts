@@ -22,3 +22,4 @@ export class ForpassService {
     return this.http.post(this.set_passwordurl,updatedobj);
   }
 }
+
